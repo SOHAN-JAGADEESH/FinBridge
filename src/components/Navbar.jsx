@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -20,7 +21,15 @@ const Navbar = () => {
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            {index === 0 ? (
+              <Link to="/">{nav.title}</Link>
+            ) : index === 1 ? (
+              <Link to="/dollar">{nav.title}</Link>
+            ) : (index === 2 || index === navLinks.length - 1) ? (
+              <Link to="/compare">{nav.title}</Link>
+            ) : (
+              <a href={`#${nav.id}`}>{nav.title}</a>
+            )}
           </li>
         ))}
       </ul>
@@ -47,8 +56,16 @@ const Navbar = () => {
                 } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(nav.title)}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              </li>
+                {index === 0 ? (
+              <Link to="/">{nav.title}</Link>
+            ) : index === 1 ? (
+              <Link to="/dollar">{nav.title}</Link>
+            ) : (index === 2 || index === navLinks.length - 1) ? (
+              <Link to="/compare">{nav.title}</Link>
+            ) : (
+              <a href={`#${nav.id}`}>{nav.title}</a>
+            )}
+          </li>
             ))}
           </ul>
         </div>

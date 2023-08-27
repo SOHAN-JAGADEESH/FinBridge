@@ -1,5 +1,6 @@
 import React from 'react';
-import dollar from './pages/dollar';
+import Dollar from './pages/Dollar';
+import Compare from './pages/Compare';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dollar",
-    element: <dollar />,
+    element: <Dollar />,
+  },
+  {
+    path: "/compare",
+    element: <Compare />,
   },
 ]);
 
