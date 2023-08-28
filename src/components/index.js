@@ -5,6 +5,9 @@ import Business from "./Business";
 import CTA from "./CTA";
 import Footer from "./Footer";
 import Hero from "./Hero";
+import Input from "./Input";
+import Output from "./Output";
+
 
 export {
   Navbar,
@@ -14,4 +17,6 @@ export {
   CTA,
   Footer,
   Hero,
+  Input,
+  Output,
 };
