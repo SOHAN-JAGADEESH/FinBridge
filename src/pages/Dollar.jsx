@@ -39,7 +39,7 @@ const Dollar = () => {
   }, [amount]);
 
   return (
-    <div className="bg-primary w-full overflow-hidden">
+    <div className="bg-primary w-full overflow-hidden min-h-screen relative">
   
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
