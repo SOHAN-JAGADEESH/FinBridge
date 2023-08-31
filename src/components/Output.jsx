@@ -1,23 +1,20 @@
-import { useState } from "react";
-import React from 'react'
-import CategoryCard  from "./Card";
+import React from 'react';
+import CategoryCard from "./Card";
 
-const Output = ({ amount }) => {
-    const data = {
-      food: 7,
-      housing: 10,
-      transportation: 5,
-      utilities: 12,
-      coffee: 15
-    };
-  
+const Output = ({ response }) => {
+    if (!response || !response.results) {
+        return <div>No data received.</div>;
+    }
+
+    const itemNames = ["coffee", "housing", "Transport", "Food and non-alcoholic beverages", "Months with entire expenditure", "Utilities"];
+
     return (
-      <div className="output-section mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {Object.keys(data).map(category => (
-          <CategoryCard key={category} title={category} days={data[category]} />
+      <div className="output-section mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {response.results.map((value, index) => (
+          <CategoryCard key={index} title={itemNames[index] || `Item ${index + 1}`} days={value} />
         ))}
       </div>
     );
-  }
+}
 
-export default Output
+export default Output;

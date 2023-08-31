@@ -20,10 +20,11 @@ const Input = ({ setAmount }) => {
         />
         <button 
           onClick={handleSubmit} 
-          className="mt-2 w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-200"
+          className="mt-2 w-full bg-blue-500 py-4 px-6 font-poppins text-primary bg-blue-gradient rounded-md hover:bg-blue-600 transition duration-200"
         >
           Calculate
         </button>
+        
       </div>
     );
   }

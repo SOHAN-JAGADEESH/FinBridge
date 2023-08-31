@@ -5,25 +5,36 @@ import styles from "../style";
 import Input from "../components/Input";
 import Output from "../components/Output";
 
+
 const Dollar = () => {
   const [amount, setAmount] = useState(null);
   const [response, setResponse] = useState(null);
 
   useEffect(() => {
     if (amount !== null) {
+      const integerAmount = parseInt(amount, 10);
       // Define the API endpoint and options
-      const apiUrl = "https://l7p1meyo80.execute-api.ap-southeast-2.amazonaws.com/test/user";
+      const apiUrl = "https://g0d2ycfkvg.execute-api.ap-southeast-2.amazonaws.com/test/users";
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ number: amount })
+        body: JSON.stringify({ "number" : integerAmount })
       };
 
       // Make the API call
       fetch(apiUrl, requestOptions)
         .then(response => response.json())
-        .then(data => setResponse(data))
-        .catch(error => console.error('There was an error!', error));
+        .then(data => {
+          if (data && data.statusCode === 200) {
+              let parsedBody = JSON.parse(data.body);
+              if (parsedBody && parsedBody.results) {
+                  setResponse(parsedBody);
+              }
+          } else {
+              console.error('Unexpected data format received:', data);
+          }
+      })
+      .catch(error => console.error('There was an error!', error));
     }
   }, [amount]);
 
@@ -54,8 +65,8 @@ const Dollar = () => {
         </div>
       </div>
 
-      <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
+      <div className={`bg-primary ${styles.paddingX} flex justify-center`}>
+        <div className={`w-full flex justify-center`}>
           <Input setAmount={setAmount} />
         </div>
       </div>
