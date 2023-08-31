@@ -44,36 +44,43 @@ const Dollar = () => {
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Navbar />
-        </div>
-      </div>
+            <div className={`mt-8  text-center`}>
+              <h2 className="flex-1 text-center font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[80.8px] leading-[65px]">
+                Understanding Your Money's Worth in Australia
+              </h2>
+              <p className="font-poppinstext-justify text-[20px] text-white leading-[28px] mt-4 ">
+                Are you an international student in India planning to study or travel to Australia? Understanding the purchasing power of your money in a foreign country can be a challenge. Our tool is designed to provide you with a glimpse of what your dollars can get you in Australia.
+                Simply enter an amount in AUD (Australian Dollars), and we'll show you an estimate of how many days of essentials like food, housing, transportation, and more, that amount can cover in Australia. This can help you budget effectively and make informed decisions about your expenses while staying in the country.
+              </p>
+              
+              <p className="font-poppins text-[16px] text-gradient leading-[26px] mt-4">
+                Remember, these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
+            </p>
+            <br/>
+            </div>
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`mt-8 text-center ${styles.boxWidth}`}>
-          <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[80.8px] leading-[65px]">
-            Understanding Your Money's Worth in Australia
-          </h2>
-          <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
-            Are you an international student in India planning to study or travel to Australia? Understanding the purchasing power of your money in a foreign country can be a challenge. Our tool is designed to provide you with a glimpse of what your dollars can get you in Australia.
-          </p>
-          <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
-            Simply enter an amount in AUD (Australian Dollars), and we'll show you an estimate of how many days of essentials like food, housing, transportation, and more, that amount can cover in Australia. This can help you budget effectively and make informed decisions about your expenses while staying in the country.
-          </p>
-          <p className="font-poppins text-[16px] text-gradient leading-[26px] mt-4">
-            Remember, these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
-         </p>
-         <br/>
-        </div>
-      </div>
+          <div className="w-full border-2 border-green-300 my-4"></div>
 
-      <div className={`bg-primary ${styles.paddingX} flex justify-center`}>
-        <div className={`w-full flex justify-center`}>
-          <Input setAmount={setAmount} />
-        </div>
-      </div>
+          <div className="text-center mb-4">
+            <br/>
+              <h2 className="text-3xl font-bold text-gradient">See what your money can get you ?</h2>
+              <br/>
+          </div>
 
-      <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          {response && <Output response={response} />}
+          <div className={`bg-primary ${styles.paddingX} flex justify-center`}>
+            <div className={`w-full flex justify-center`}>
+              <Input setAmount={setAmount} />
+            </div>
+          </div>
+
+          <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+            <div className={`${styles.boxWidth}`}>
+              <br/>
+              {response && <Output response={response} />}
+              <br/>
+              <br/>
+            </div>
+          </div>
         </div>
       </div>
 

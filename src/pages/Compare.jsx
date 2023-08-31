@@ -64,7 +64,7 @@ const Compare = () => {
                   <Navbar />
                   <div className="mt-8 text-center">
                       <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[70.8px] leading-[60px]">Cost Comparison for Students in Melbourne</h2>
-                      <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
+                      <p className="font-poppins text-[20px] text-white leading-[28px] mt-4 text-align: justify">
                           Navigating a new country can be challenging, especially when it comes to expenses. This tool provides a comparative analysis of living costs between Melbourne and India, helping you grasp a clearer picture of your finances in Australia.
                           Knowing the expenses in terms of ratio to your income is the best way to get a clear picture and not get anxious about your expenditure.
                       </p>
@@ -121,6 +121,8 @@ const Compare = () => {
                         <p className='text-xl  mb-3'>Transportation Costs (Ratio: {indiaRatios.transport}): ₹{indiaData.transportationCosts}</p>
                         <p className='text-xl  mb-3'>Utilities (Ratio: {indiaRatios.utilities}): ₹{indiaData.utilities}</p>
                     </div>
+                    <br/>
+                    <br/>
                   </div>
               </div>
           </div>
