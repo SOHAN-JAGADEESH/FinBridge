@@ -7,25 +7,40 @@ import './index.css';
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
+  useNavigate, // Import the useNavigate hook
+} from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
   },
   {
-    path: "/dollar",
+    path: '/dollar',
     element: <Dollar />,
   },
   {
-    path: "/compare",
+    path: '/compare',
     element: <Compare />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
-    <RouterProvider router={router} />
-
+  <RouterProvider router={router}>
+    {/* Render your app */}
+    <AppWrapper />
+  </RouterProvider>
 );
+
+function AppWrapper() {
+  const navigate = useNavigate(); // Get the navigate function
+
+  // Define the handleClick function to navigate to the /dollar page
+  const handleClick = () => {
+    navigate('/dollar');
+  };
+
+  return (
+    <App handleClick={handleClick} /> // Pass handleClick as a prop to your App component
+  );
+}
