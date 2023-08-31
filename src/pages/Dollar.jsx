@@ -48,7 +48,7 @@ const Dollar = () => {
       </div>
 
       <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
+        <div className={`mt-8 text-center ${styles.boxWidth}`}>
           <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[80.8px] leading-[65px]">
             Understanding Your Money's Worth in Australia
           </h2>

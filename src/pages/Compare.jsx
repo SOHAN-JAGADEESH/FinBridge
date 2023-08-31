@@ -22,13 +22,12 @@ const Compare = () => {
   const handleHourlyWageSubmit = () => {
     // Here, we just trigger a re-render which will use the latest hourly wage to update the displayed values
     setConfirmedHourlyWage(hourlyWage);
-    console.log("hello")
   };
 
 
   // Hardcoded data for Melbourne and India
   const melbourneData = {
-      averageMonthlySalary: 4000,
+      averageMonthlySalary: melbourneMonthlySalary,
       rent: 1500,
       foodCost: 600,
       transportationCosts: 200,
@@ -42,6 +41,7 @@ const Compare = () => {
       transportationCosts: 3000,
       utilities: 2000
   };
+
 
   const melbourneRatios = {
       rent: (melbourneData.rent / melbourneData.averageMonthlySalary).toFixed(2),
@@ -63,19 +63,28 @@ const Compare = () => {
               <div className={`${styles.boxWidth}`}>
                   <Navbar />
                   <div className="mt-8 text-center">
-                      <h2 className="font-poppins font-semibold text-[42px] text-gradient leading-[65px]">Cost Comparison for International Indian Students in Melbourne</h2>
+                      <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[70.8px] leading-[60px]">Cost Comparison for Students in Melbourne</h2>
                       <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
                           Navigating a new country can be challenging, especially when it comes to expenses. This tool provides a comparative analysis of living costs between Melbourne and India, helping you grasp a clearer picture of your finances in Australia.
+                          Knowing the expenses in terms of ratio to your income is the best way to get a clear picture and not get anxious about your expenditure.
                       </p>
-                      <p className="font-poppins text-[20px] text-white leading-[28px] mt-4">
-                          <button className="text-blue-600 underline" onClick={() => setShowHowToGuide(true)}>How to use this tool?</button>
+                      <p className="font-poppins text-[15px] text-white leading-[28px] mt-4">
+                          <button className="text-emerald-400 underline" onClick={() => setShowHowToGuide(true)}>How to use this tool?</button>
                           <span className="mx-2">|</span>
-                          <button className="text-blue-600 underline" onClick={() => setShowBenefits(true)}>Benefits</button>
+                          <button className="text-emerald-400 underline" onClick={() => setShowBenefits(true)}>Benefits</button>
                       </p>
+                      <br />
                   </div>
+
+                  <div className="w-full border-2 border-green-300 my-4"></div>
+
+                  <div className="text-center mb-4">
+                      <h2 className="text-2xl font-bold text-gradient">Living Cost Comparison</h2>
+                  </div>
+
                   <div className="grid grid-cols-2 gap-8">
-                      <div className="bg-white p-4 rounded shadow-lg">
-                        <h3 className="text-xl font-bold mb-4">Melbourne</h3>
+                      <div className="bg-blue-gradient p-4 rounded shadow-lg min-h-64">
+                        <h3 className="text-2xl font-bold mb-4">Melbourne</h3>
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700" htmlFor="hourlyWage">
                                 Enter your hourly wage (AUD):
@@ -91,25 +100,26 @@ const Compare = () => {
                               />
                               <button 
                                   onClick={handleHourlyWageSubmit}
-                                  className="ml-2 bg-blue-600 text-white px-4 py-2 rounded"
-                              >
+                                  className="ml-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-600"
+                                  >
                                   Submit
                               </button>
                             </div>
                         </div>
-                        <p>Average Monthly Salary (based on your input): ${melbourneData.averageMonthlySalary.toFixed(2)}</p>
-                        <p>Rent (Ratio: {melbourneRatios.rent}): ${melbourneData.rent}</p>
-                        <p>Food Cost (Ratio: {melbourneRatios.food}): ${melbourneData.foodCost}</p>
-                        <p>Transportation Costs (Ratio: {melbourneRatios.transport}): ${melbourneData.transportationCosts}</p>
-                        <p>Utilities (Ratio: {melbourneRatios.utilities}): ${melbourneData.utilities}</p>
+                        <p className='text-xl  mb-3'>Average Monthly Salary : ${melbourneData.averageMonthlySalary.toFixed(2)}</p>
+                        <p className='text-xl  mb-3'>Rent (Ratio: {melbourneRatios.rent}): ${melbourneData.rent}</p>
+                        <p className='text-xl  mb-3'>Food Cost (Ratio: {melbourneRatios.food}): ${melbourneData.foodCost}</p>
+                        <p className='text-xl  mb-3'>Transportation Costs (Ratio: {melbourneRatios.transport}): ${melbourneData.transportationCosts}</p>
+                        <p className='text-xl  mb-3'>Utilities (Ratio: {melbourneRatios.utilities}): ${melbourneData.utilities}</p>
                     </div>
-                    <div className="bg-white p-4 rounded shadow-lg">
-                        <h3 className="text-xl font-bold mb-4">India</h3>
-                        <p>Average Monthly Salary: ₹{indiaData.averageMonthlySalary}</p>
-                        <p>Rent (Ratio: {indiaRatios.rent}): ₹{indiaData.rent}</p>
-                        <p>Food Cost (Ratio: {indiaRatios.food}): ₹{indiaData.foodCost}</p>
-                        <p>Transportation Costs (Ratio: {indiaRatios.transport}): ₹{indiaData.transportationCosts}</p>
-                        <p>Utilities (Ratio: {indiaRatios.utilities}): ₹{indiaData.utilities}</p>
+                    <div className="bg-blue-gradient p-4 rounded shadow-lg">
+                        <h3 className="text-2xl font-bold mb-4">India</h3>
+                        <br/>
+                        <p className='text-xl  mb-3'>Average Monthly Salary: ₹{indiaData.averageMonthlySalary}</p>
+                        <p className='text-xl  mb-3'>Rent (Ratio: {indiaRatios.rent}): ₹{indiaData.rent}</p>
+                        <p className='text-xl  mb-3'>Food Cost (Ratio: {indiaRatios.food}): ₹{indiaData.foodCost}</p>
+                        <p className='text-xl  mb-3'>Transportation Costs (Ratio: {indiaRatios.transport}): ₹{indiaData.transportationCosts}</p>
+                        <p className='text-xl  mb-3'>Utilities (Ratio: {indiaRatios.utilities}): ₹{indiaData.utilities}</p>
                     </div>
                   </div>
               </div>
