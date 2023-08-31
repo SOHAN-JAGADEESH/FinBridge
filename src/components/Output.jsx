@@ -16,7 +16,7 @@ const Output = ({ response }) => {
       // ... other items ...
     ];
 
-    const adjustmentMultipliers = [1, 1.5, 1.2 , 1, 2.2 , 3];
+    const adjustmentMultipliers = [1, 1.5, 1.2 , 1, 2.5 , 3];
 
     return (
       <div className="output-section mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
