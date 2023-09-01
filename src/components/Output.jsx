@@ -7,7 +7,7 @@ const Output = ({ response }) => {
     }
 
     const itemsData = [
-      { name: "Coffee", description: "Your can afford coffee for the number of days mentioned above" },
+      { name: "Coffee", description: "Your can afford coffee for the number of days mentioned above, given you consume 2 cups of coffee a day" },
       { name: "Housing", description: "Your can afford to pay rent for the number of days mentioned above" },
       { name: "Transport", description: "Your can afford transportation for the number of days mentioned above" },
       { name: "Food and Non-Alcoholic Beverages", description: "Your can afford food for the number of days mentioned above" },
