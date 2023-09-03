@@ -9,11 +9,11 @@ const App = () => (
           <Navbar />
         </div>
 
-        <div className={`flex-1 bg-primary ${styles.flexStart}`}> {/* flex-1 ensures that this section takes up any remaining space */}
-          <div className={`${styles.boxWidth}`}>
+        {/* flex-1 ensures that this section takes up any remaining space */}
+          <div className={`flex-1 ${styles.boxWidth}`}>
             <Hero />
           </div>
-        </div>
+        
       </div>
 
     
