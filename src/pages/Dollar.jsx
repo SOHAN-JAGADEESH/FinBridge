@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import styles from "../style";
 import Input from "../components/Input";
 import Output from "../components/Output";
+import AnimatedHeader from '../components/AnimatedHeader';
 
 
 const Dollar = () => {
@@ -45,9 +46,7 @@ const Dollar = () => {
         <div className={`${styles.boxWidth}`}>
           <Navbar />
             <div className={`mt-8  text-center`}>
-              <h2 className="flex-1 text-center font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[80.8px] leading-[65px]">
-                Understanding Your Money's Worth in Australia
-              </h2>
+              <AnimatedHeader text="Understanding Your Money's Worth in Australia" />
               <p className="font-poppinstext-justify text-[20px] text-white leading-[28px] mt-4 ">
                 Are you an international student in India planning to study or travel to Australia? Understanding the purchasing power of your money in a foreign country can be a challenge. Our tool is designed to provide you with a glimpse of what your dollars can get you in Australia.
                 Simply enter an amount in AUD (Australian Dollars), and we'll show you an estimate of how many days of essentials like food, housing, transportation, and more, that amount can cover in Australia. This can help you budget effectively and make informed decisions about your expenses while staying in the country.

@@ -23,6 +23,12 @@ import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
+import coffee from "./coffe_icon.svg";
+import expenses from "./expenses_icon.svg";
+import food from "./food_icon.svg";
+import housing from "./housing_icon.svg";
+import transport from "./transport_icon.svg";
+import utilities from "./utilites_icon.svg";
 
 export {
   airbnb,
@@ -50,4 +56,10 @@ export {
   people01,
   people02,
   people03,
+  coffee,
+  expenses,
+  food,
+  housing,
+  transport,
+  utilities
 };
