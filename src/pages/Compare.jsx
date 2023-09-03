@@ -226,7 +226,7 @@ const Compare = () => {
                 <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded shadow-lg w-96">
                         <h2 className="text-xl font-bold mb-4">How We Calculate</h2>
-                        <p>Here you can explain how you calculate all the data. Replace this with the desired content.</p>
+                        <p>Hello.</p>
                         <button className="mt-4 text-blue-500" onClick={() => setModalOpen(false)}>Close</button>
                     </div>
                 </div>
