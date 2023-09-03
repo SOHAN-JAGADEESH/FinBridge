@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
@@ -58,6 +59,7 @@
     #11101d 91.61%
   );
 }
+
 
 .bg-solid {
   background: linear-gradient(

@@ -29,6 +29,7 @@ import food from "./food_icon.svg";
 import housing from "./housing_icon.svg";
 import transport from "./transport_icon.svg";
 import utilities from "./utilites_icon.svg";
+import section from "./section_design.png";
 
 export {
   airbnb,
@@ -61,5 +62,6 @@ export {
   food,
   housing,
   transport,
-  utilities
+  utilities,
+  section
 };
