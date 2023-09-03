@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CategoryCard = ({ title, days, description, icon }) => {
+const CategoryCard = ({ title, days, description, icon, specialCard }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -9,7 +9,7 @@ const CategoryCard = ({ title, days, description, icon }) => {
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div 
-        className={`w-full h-full bg-blue-gradient p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-180' : 'rotate-y-0'}`}
+        className={`w-full h-full ${specialCard ? 'bg-yellow-500' : 'bg-blue-gradient'} p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-180' : 'rotate-y-0'}`}
       >
         <div className="flex flex-col items-center justify-center h-full">
           <img src={icon} alt="icon" className="icon-class " />
@@ -21,7 +21,7 @@ const CategoryCard = ({ title, days, description, icon }) => {
       </div>
 
       <div 
-        className={`w-full h-full bg-blue-gradient p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-0' : 'rotate-y-180'}`}
+        className={`w-full h-full ${specialCard ? 'bg-red-500' : 'bg-blue-gradient'} p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-0' : 'rotate-y-180'}`}
       >
         <p>Additional details about {title}.</p>
       </div>

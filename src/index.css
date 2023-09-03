@@ -46,6 +46,10 @@
   );
 }
 
+.bg-second-gradient {
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(147,205,252,1) 11%, rgba(92,178,251,1) 29%, rgba(1,132,247,1) 100%);
+}
+
 .bg-black-gradient {
   background: linear-gradient(
     144.39deg,
@@ -148,6 +152,7 @@
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
   filter: blur(123px);
 }
+
 
 .pink__gradient {
   background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
