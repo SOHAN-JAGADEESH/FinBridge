@@ -4,15 +4,15 @@ import { Billing, Business, CardDeal, CTA, Footer, Navbar, Hero } from "./compon
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
 
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
+<     div className="h-screen flex flex-col">  {/* Set the height to be 100vh and use flexbox */}
+        <div className={`${styles.paddingX}`}>
           <Navbar />
         </div>
-      </div>
 
-      <div className={`bg-primary max-h-fit ${styles.flexStart}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Hero />
+        <div className={`flex-1 bg-primary ${styles.flexStart}`}> {/* flex-1 ensures that this section takes up any remaining space */}
+          <div className={`${styles.boxWidth}`}>
+            <Hero />
+          </div>
         </div>
       </div>
 
