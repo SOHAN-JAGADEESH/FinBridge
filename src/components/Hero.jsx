@@ -5,7 +5,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <section id="home" className={`flex md:flex-row flex-col h-[calc(90vh)] lg:h-[calc(95vh)] ${styles.paddingY}`}>
+    <section id="home" className={`flex md:flex-row hero-section flex-col h-[calc(90vh)] lg:h-[calc(95vh)] ${styles.paddingY}`}>
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-2`}>
         <div className="flex flex-row justify-between items-center w-full">
           <h1 className="font-poppins font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[52px] 2xl:text-[72px] text-white leading-snug md:leading-normal lg:leading-relaxed">

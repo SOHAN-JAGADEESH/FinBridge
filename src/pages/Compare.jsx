@@ -67,8 +67,11 @@ const Compare = () => {
                   <div className="mt-8 text-center">
                       <h2 className="flex-1 font-poppins font-semibold ss:text-[52px] text-[42px] text-gradient ss:leading-[70.8px] leading-[60px]">Cost Comparison for Students in Melbourne</h2>
                       <p className="font-poppins text-[20px] text-white leading-[28px] mt-4 text-align: justify">
-                          Navigating a new country can be challenging, especially when it comes to expenses. This tool provides a comparative analysis of living costs between Melbourne and India, helping you grasp a clearer picture of your finances in Australia.
-                          Knowing the expenses in terms of ratio to your income is the best way to get a clear picture and not get anxious about your expenditure.
+                        Ever wonder how many hours of work covers your monthly rent or weekly groceries?
+                        Relative Price is an economic concept to interpret the monetary price tag of an item in terms of another
+                        To enhance your understanding of Melbourne's prices, this page gives the Relative Prices of some necessities based on your hourly wage
+                        Always remember, the fruit after hard work is the sweetest.
+                        Every hour you work brings you a step closer to becoming a self-sufficient individual. 
                       </p>
                       <p className="font-poppins text-[15px] text-white leading-[28px] mt-4">
                           <button className="text-emerald-400 underline" onClick={() => setShowHowToGuide(true)}>How to use this tool?</button>
@@ -86,7 +89,7 @@ const Compare = () => {
 
                   <div className="grid grid-cols-2 gap-8">
                     <div className="bg-blue-gradient p-4 rounded shadow-lg min-h-64 relative">
-                        <button className="absolute top-2 right-2 text-blue-500 z-10" onClick={() => setModalOpen(true)}>How we calculate?</button>
+                        <button className="absolute top-2 right-2 text-gray-500 z-10" onClick={() => setModalOpen(true)}>How we calculate?</button>
                         <h3 className="text-2xl font-bold mb-4">Melbourne</h3>
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700" htmlFor="hourlyWage">
@@ -226,7 +229,20 @@ const Compare = () => {
                 <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded shadow-lg w-96">
                         <h2 className="text-xl font-bold mb-4">How We Calculate</h2>
-                        <p>Hello.</p>
+                        <p>
+                            <strong>Salary:</strong> The average monthly salary is calculated based on the hourly wage you provide. 
+                            As a student, you can work a maximum of 24 hours per week. Therefore, the monthly salary is computed 
+                            by multiplying your hourly wage by 24 hours and then by 4 weeks, representing a month.
+                        </p>
+                        <p>
+                            <strong>Ratio:</strong> The ratio represents the proportion of your monthly salary that is spent on 
+                            a specific expense category. It's calculated by dividing the cost of the expense by your average monthly salary.
+                        </p>
+                        <p>
+                            <strong>Hours Needed:</strong> The number of hours needed to earn the amount for a particular expense category 
+                            is derived by dividing the cost of the expense by your hourly wage. This represents how many hours you need 
+                            to work to cover that specific expense.
+                        </p>
                         <button className="mt-4 text-blue-500" onClick={() => setModalOpen(false)}>Close</button>
                     </div>
                 </div>

@@ -85,6 +85,20 @@
   );
 }
 
+.hero-section {
+  background-image: url('./assets/hero-bg.png');
+  background-position: start; /* To center the image */
+  background-size: 60%;
+  background-repeat: no-repeat;
+  
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('./assets/hero-bg.png');
+  background-repeat: no-repeat;
+}
+
+
 .bg-discount-gradient {
   background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
 }

@@ -48,9 +48,11 @@ const Dollar = () => {
             <div className={`mt-8  text-center`}>
               <AnimatedHeader text="Understanding Your Money's Worth in Australia" />
               <p className="font-poppinstext-justify text-[20px] text-white leading-[28px] mt-4 ">
-                Are you an international student in India planning to study or travel to Australia? Understanding the purchasing power of your money in a foreign country can be a challenge. Our tool is designed to provide you with a glimpse of what your dollars can get you in Australia.
-                Simply enter an amount in AUD (Australian Dollars), and we'll show you an estimate of how many days of essentials like food, housing, transportation, and more, that amount can cover in Australia. This can help you budget effectively and make informed decisions about your expenses while staying in the country.
-              </p>
+                It could be challenging to evaluate the purchasing power  of your money in a foreign country.
+                  We are here to help,
+                  Enter any amount of Australian Dollar here and see what it can get you.
+                  Every dollar spent is a reminder of the sacrifices made by your family miles away, spend it wisely!
+                </p>
               
               <p className="font-poppins text-[16px] text-gradient leading-[26px] mt-4">
                 Remember, these are approximate values based on average costs and are meant to serve as a general guideline. Actual expenses can vary based on individual preferences, location, and current market conditions.
