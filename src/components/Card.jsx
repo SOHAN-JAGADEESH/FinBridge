@@ -21,7 +21,7 @@ const CategoryCard = ({ title, days, description, icon, specialCard }) => {
       </div>
 
       <div 
-        className={`w-full h-full ${specialCard ? 'bg-red-500' : 'bg-blue-gradient'} p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-0' : 'rotate-y-180'}`}
+        className={`w-full h-full ${specialCard ? 'bg-yellow-500' : 'bg-blue-gradient'} p-9 transition-transform rounded-md shadow-md absolute top-0 left-0 backface-hidden transform ${isFlipped ? 'rotate-y-0' : 'rotate-y-180'}`}
       >
         <p>Additional details about {title}.</p>
       </div>
