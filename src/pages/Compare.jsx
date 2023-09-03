@@ -8,6 +8,8 @@ const Compare = () => {
   const [showBenefits, setShowBenefits] = useState(false);
   const [hourlyWage, setHourlyWage] = useState(null);
   const [confirmedHourlyWage, setConfirmedHourlyWage] = useState(null); // New state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [wageError, setWageError] = useState(false);
 
   const closeModal = () => {
       setShowHowToGuide(false);
@@ -28,16 +30,16 @@ const Compare = () => {
   // Hardcoded data for Melbourne and India
   const melbourneData = {
       averageMonthlySalary: melbourneMonthlySalary,
-      rent: 1500,
+      rent: 1200,
       foodCost: 600,
-      transportationCosts: 200,
+      transportationCosts: 300,
       utilities: 300
   };
 
   const indiaData = {
-      averageMonthlySalary: 30000,
-      rent: 10000,
-      foodCost: 5000,
+      averageMonthlySalary: 46000,
+      rent: 18000,
+      foodCost: 8000,
       transportationCosts: 3000,
       utilities: 2000
   };
@@ -83,7 +85,8 @@ const Compare = () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-8">
-                      <div className="bg-blue-gradient p-4 rounded shadow-lg min-h-64">
+                    <div className="bg-blue-gradient p-4 rounded shadow-lg min-h-64 relative">
+                        <button className="absolute top-2 right-2 text-blue-500 z-10" onClick={() => setModalOpen(true)}>How we calculate?</button>
                         <h3 className="text-2xl font-bold mb-4">Melbourne</h3>
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700" htmlFor="hourlyWage">
@@ -94,7 +97,14 @@ const Compare = () => {
                                   type="number" 
                                   id="hourlyWage" 
                                   name="hourlyWage" 
-                                  onChange={e => setHourlyWage(parseFloat(e.target.value))}
+                                  onChange={e => {
+                                    setHourlyWage(parseFloat(e.target.value));
+                                    if (parseFloat(e.target.value) < 23) {
+                                        setWageError(true);
+                                    } else {
+                                        setWageError(false);
+                                    }
+                                }}
                                   placeholder="e.g. 20"
                                   className="mt-1 p-2 border rounded-md flex-grow"
                               />
@@ -105,21 +115,76 @@ const Compare = () => {
                                   Submit
                               </button>
                             </div>
+                            <p className="text-red-500 text-xs mt-1" role="alert">Hourly wage should be at least 23 AUD.</p>
                         </div>
-                        <p className='text-xl  mb-3'>Average Monthly Salary : ${melbourneData.averageMonthlySalary.toFixed(2)}</p>
-                        <p className='text-xl  mb-3'>Rent (Ratio: {melbourneRatios.rent}): ${melbourneData.rent}</p>
-                        <p className='text-xl  mb-3'>Food Cost (Ratio: {melbourneRatios.food}): ${melbourneData.foodCost}</p>
-                        <p className='text-xl  mb-3'>Transportation Costs (Ratio: {melbourneRatios.transport}): ${melbourneData.transportationCosts}</p>
-                        <p className='text-xl  mb-3'>Utilities (Ratio: {melbourneRatios.utilities}): ${melbourneData.utilities}</p>
+                        <div className="grid grid-cols-4 gap-4 mb-4 font-bold">
+                        <div>Category</div>
+                        <div>Cost</div>
+                        <div>Ratio</div>
+                        <div>Hours Taken</div>
+                        </div>  
+                        <div className="grid grid-cols-4 gap-4 mb-4">
+                            <div>Monthly Salary</div>
+                            <div>${melbourneData.averageMonthlySalary.toFixed(2)}</div>
+                            <div>1</div>
+                            <div>96 (max)</div>
+
+                            <div>Rent</div>
+                            <div>${melbourneData.rent}</div>
+                            <div>{melbourneRatios.rent}</div>
+                            <div>{(melbourneData.rent / confirmedHourlyWage).toFixed(2)}</div>
+
+                            <div>Food Cost</div>
+                            <div>${melbourneData.foodCost}</div>
+                            <div>{melbourneRatios.food}</div>
+                            <div>{(melbourneData.foodCost / confirmedHourlyWage).toFixed(2)}</div>
+
+                            <div>Transportation</div>
+                            <div>${melbourneData.transportationCosts}</div>
+                            <div>{melbourneRatios.transport}</div>
+                            <div>{(melbourneData.transportationCosts / confirmedHourlyWage).toFixed(2)}</div>
+
+                            <div>Utilities</div>
+                            <div>${melbourneData.utilities}</div>
+                            <div>{melbourneRatios.utilities}</div>
+                            <div>{(melbourneData.utilities / confirmedHourlyWage).toFixed(2)}</div>
+                        </div>
                     </div>
                     <div className="bg-blue-gradient p-4 rounded shadow-lg">
                         <h3 className="text-2xl font-bold mb-4">India</h3>
                         <br/>
-                        <p className='text-xl  mb-3'>Average Monthly Salary: ₹{indiaData.averageMonthlySalary}</p>
-                        <p className='text-xl  mb-3'>Rent (Ratio: {indiaRatios.rent}): ₹{indiaData.rent}</p>
-                        <p className='text-xl  mb-3'>Food Cost (Ratio: {indiaRatios.food}): ₹{indiaData.foodCost}</p>
-                        <p className='text-xl  mb-3'>Transportation Costs (Ratio: {indiaRatios.transport}): ₹{indiaData.transportationCosts}</p>
-                        <p className='text-xl  mb-3'>Utilities (Ratio: {indiaRatios.utilities}): ₹{indiaData.utilities}</p>
+                        <div className="grid grid-cols-4 gap-4 mb-4 font-bold">
+                        <div>Category</div>
+                        <div>Cost</div>
+                        <div>Ratio</div>
+                        <div>Hours Taken</div>
+                        </div> 
+                        <div className="grid grid-cols-4 gap-4 mb-4">
+                            <div>Monthly Salary</div>
+                            <div>₹{indiaData.averageMonthlySalary}</div>
+                            <div>1</div>
+                            <div>160 (avg)</div>
+
+                            <div>Rent</div>
+                            <div>₹{indiaData.rent}</div>
+                            <div>{indiaRatios.rent}</div>
+                            <div>{(indiaData.rent / 287.5).toFixed(2)}</div>
+
+                            <div>Food Cost</div>
+                            <div>₹{indiaData.foodCost}</div>
+                            <div>{indiaRatios.food}</div>
+                            <div>{(indiaData.foodCost / 287.5).toFixed(2)}</div>
+
+                            <div>Transportation</div>
+                            <div>₹{indiaData.transportationCosts}</div>
+                            <div>{indiaRatios.transport}</div>
+                            <div>{(indiaData.transportationCosts / 287.5).toFixed(2)}</div>
+
+                            <div>Utilities</div>
+                            <div>₹{indiaData.utilities}</div>
+                            <div>{indiaRatios.utilities}</div>
+                            <div>{(indiaData.utilities / 287.5).toFixed(2)}</div>
+                        </div>
                     </div>
                     <br/>
                     <br/>
@@ -153,6 +218,16 @@ const Compare = () => {
                             <li className="mb-2">Peace of Mind: With knowledge, you can focus on your studies and enjoy your time in Melbourne.</li>
                         </ul>
                         <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded" onClick={closeModal}>Close</button>
+                    </div>
+                </div>
+            )}
+
+            {modalOpen && (
+                <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+                    <div className="bg-white p-6 rounded shadow-lg w-96">
+                        <h2 className="text-xl font-bold mb-4">How We Calculate</h2>
+                        <p>Here you can explain how you calculate all the data. Replace this with the desired content.</p>
+                        <button className="mt-4 text-blue-500" onClick={() => setModalOpen(false)}>Close</button>
                     </div>
                 </div>
             )}
