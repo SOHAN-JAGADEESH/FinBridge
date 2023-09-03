@@ -1,8 +1,7 @@
 import { useState } from "react";
-
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -17,19 +16,18 @@ const Navbar = () => {
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => setActive(nav.title)}
+              index === navLinks.length - 1 ? "mr-0" : "mr-10"
+            }`}
           >
-            {index === 0 ? (
-              <Link to="/">{nav.title}</Link>
-            ) : index === 1 ? (
-              <Link to="/dollar">{nav.title}</Link>
-            ) : (index === 2 || index === navLinks.length - 1) ? (
-              <Link to="/compare">{nav.title}</Link>
-            ) : (
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            )}
+            <NavLink
+              to={index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 || index === navLinks.length - 1 ? "/compare" : `#${nav.id}`}
+              exact
+              activeClassName="text-white"
+              className="text-dimWhite"
+              style={window.location.pathname === (index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 || index === navLinks.length - 1 ? "/compare" : `#${nav.id}`) ? { color: 'white' } : {}}
+            >
+              {nav.title}
+            </NavLink>
           </li>
         ))}
       </ul>
@@ -50,22 +48,19 @@ const Navbar = () => {
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navLinks.map((nav, index) => (
               <li
-                key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
-                onClick={() => setActive(nav.title)}
+              key={nav.id}
+              className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                index === navLinks.length - 1 ? "mb-0" : "mb-4"
+              }`}
+            >
+              <NavLink
+                to={index === 0 ? "/" : index === 1 ? "/dollar" : index === 2 || index === navLinks.length - 1 ? "/compare" : `#${nav.id}`}
+                activeClassName="text-white"
+                className="text-dimWhite"
               >
-                {index === 0 ? (
-              <Link to="/">{nav.title}</Link>
-            ) : index === 1 ? (
-              <Link to="/dollar">{nav.title}</Link>
-            ) : (index === 2 || index === navLinks.length - 1) ? (
-              <Link to="/compare">{nav.title}</Link>
-            ) : (
-              <a href={`#${nav.id}`}>{nav.title}</a>
-            )}
-          </li>
+                {nav.title}
+              </NavLink>
+            </li>
             ))}
           </ul>
         </div>
