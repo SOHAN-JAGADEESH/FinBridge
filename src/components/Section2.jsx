@@ -1,7 +1,7 @@
 import { apple, bill, google } from "../assets";
 import styles, { layout } from "../style";
 
-const Billing = () => (
+const Section2 = () => (
   <section id="product" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
       <img src={bill} alt="billing" className="w-[100%]  z-[5]" />
@@ -28,4 +28,4 @@ const Billing = () => (
   </section>
 );
 
-export default Billing;
+export default Section2;
