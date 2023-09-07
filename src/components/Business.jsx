@@ -34,7 +34,7 @@ const Business = () =>  (
       </p>
     </div>
 
-    <div className={`${layout.sectionImg}  grid  place-items-center`}>
+    <div className={`flex flex-col gap-6 ${layout.sectionImg} `}>
       {features.map((feature, index) => (
         <FeatureCard key={feature.id} {...feature} index={index} />
       ))}
