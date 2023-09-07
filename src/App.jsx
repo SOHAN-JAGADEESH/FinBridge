@@ -10,7 +10,7 @@ const App = () => (
         </div>
 
         {/* flex-1 ensures that this section takes up any remaining space */}
-          <div className={`flex-1 ${styles.boxWidth}`}>
+          <div className={`flex-1 mx-auto ${styles.boxWidth}`}>
             <Hero />
           </div>
         
